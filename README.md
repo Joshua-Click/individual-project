@@ -50,14 +50,14 @@
 |HvyAlcoholConsump| Heavy drinkers (adult men having more than 14 drinks per week and adult women having more than 7 drinks per week), 0=No, 1=Yes|
 |AnyHealthcare| Do you have any kind of health care coverage, including health insurance, prepaid plans such as HMOs, or government plans such as Medicare, or Indian Health Service? 0=No, 1=Yes|
 |NoDocbcCost| Was there a time in the past 12 months when you needed to see a doctor but could not because of cost? 0=No, 1=Yes|
-|GenHlth| Would you say that in general your health is: 1 to 5 scale|
+|GenHlth| Would you say that in general your health is: 1 to 5 scale, 1 is excellent, 5 is poor|
 |MentHlth| Now thinking about your mental health, which includes stress, depression, and problems with emotions, for how many days during the past 30 days was your mental health not good? Scale 1 - 30|
 |PhysHlth| Now thinking about your physical health, which includes physical illness and injury, for how many days during the past 30 days was your physical health not good? Scale 1 - 30|
 |DiffWalk| Do you have serious difficulty walking or climbing stairs? 0=No, 1=Yes|
-|Sex| Indicate sex of respondent. 0= , 1= |
-|Age| Fourteen-level age category, |
-|Education| What is the highest grade or year of school you completed? 1 - 6|
-|Income| Is your annual household income from all sources: (If respondent refuses at any income level, code "Refused.") 1-8|
+|Sex| Indicate sex of respondent. 0= Female, 1= Male |
+|Age| Fourteen-level age category,1 is 18-24, all the way to 80 and Older, 5 yr increments |
+|Education| What is the highest grade or year of school you completed? 1 - 6, 1 is never attended school or kindergarten, 6 is college 4 yrs or more|
+|Income| Is your annual household income from all sources: (If respondent refuses at any income level, code "Refused.") 1-8, 1 is < 10k, 8 is > 75k|
 
 ### How to Reproduce
 - Clone this repo
@@ -76,3 +76,6 @@
 ### Recommendations
 - 
 - 
+
+
+
