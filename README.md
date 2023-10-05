@@ -5,27 +5,40 @@
 
 ### Project description
 
-- I've taken 3 datasets from kaggle that were cleaned for modeling to determine diabetic patients.  
+- I've taken 2 datasets from kaggle that were cleaned for modeling to determine diabetic patients.  
 
 ### The Plan 
 
 ### Initial hypotheses
 
-- The dataset with 50/50 Non Diabetic/Diabetic patients will perform the best on modelsets
 - What features will have the greatest weight on determining diabetic patients?
-- Using the encoded target variable is_diabetic, how will each set perform on models and will this effect how future questionaires should be formatted?
+- Using the encoded target variable diabetit_012, how will each set perform on models and will this effect how future questionaires should be formatted?
 
 ### Acquire: 
-- Acquire the data kaggle as 3 separate csv's
-- 
+I acquired 2 datasets from Kaggle as csv downloads and saved them in my local folder from this site:
+* https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset/data?select=diabetes_012_health_indicators_BRFSS2015.csv
+
+
+- diabetes _ 012 _ health _ indicators _ BRFSS2015.csv
+
+
+- diabetes _ binary _ health _ indicators _ BRFSS2015.csv
+
+
+### Prepare:
+- Lowercased the column names
+- Created a third dataframe with equal weight of the target variables on diabetes_012
+    0=No Diabetes / 1=Prediabetic / 2=Diabetic
+    - 13983 Rows / 22 Columns
 
 ### Explore: 
-- 
-- 
-- 
-- 
+- Explored on ther first data set
+- How does the percentage of diabetics/prediabetics and the features appear in stacked percentages?
+- What do the features look like based on Age?
+- What features is diabetes_012 dependent on?
 
 ### Modeling: 
+- Modeling was done for all 3 sets.
 - Use drivers in explore to build predictive models of different types
 - Evaluate models on train and validate data
 - Select the best model based on accuracy
@@ -61,21 +74,21 @@
 
 ### How to Reproduce
 - Clone this repo
-- Acquire data from Kaggle
+- Acquire data from Kaggle in link above in Acquire and save csv's to local folder.
 - Run Notebook
 
 ### Key findings 
-- 
-- 
+- It seems highbp, highchol, smoker, stroke, and heardiseaseorattack greatly increases the percentage of diabetics and prediabetic patients as they get older.
+- Having a lower income/education level puts younger patients at higher risk of diabetes
+- BMI visually shows as bmi increases, so does the amount of patients with diabetes.
 
 ### Takeaways and Conclusions
-- 
-- 
+- Logistic Regression Models worked best on all 3 datasets
+- Highbp, highchol, bmi, heartdiseaseorattack are big indicators for diabetes.
+- It is very difficult to predict diabetes off of a questionairre, however, looking at the way the prediabetic patients answered their questions is a very good way to start predicting diabetes.
 
-- 
 ### Recommendations
-- 
-- 
+- Have more questions tailored to finding more information of pre-diabetic patients.
 
 
 
