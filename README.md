@@ -32,7 +32,7 @@ I acquired 2 datasets from Kaggle as csv downloads and saved them in my local fo
     - 13983 Rows / 22 Columns
 
 ### Explore: 
-- Explored on ther first data set
+- Explored on the first data set
 - How does the percentage of diabetics/prediabetics and the features appear in stacked percentages?
 - What do the features look like based on Age?
 - What features is diabetes_012 dependent on?
@@ -89,6 +89,7 @@ I acquired 2 datasets from Kaggle as csv downloads and saved them in my local fo
 
 ### Recommendations
 - Have more questions tailored to finding more information of pre-diabetic patients.
+
 
 
 

@@ -16,18 +16,22 @@ from sklearn.feature_selection import SelectKBest, f_regression
 
 # ACQUIRE
 def acquire_diabetes_df1():
+    '''Reads the csv once located in local folder and turns it into a dataframe'''
+
     df = pd.read_csv('diabetes_012_health_indicators_BRFSS2015.csv')
     df.columns = df.columns.str.lower()
     
     return df
 
 def acquire_diabetes_df2():
+    '''Reads the csv once saved from kaggle in local folder and turns into a dataframe'''
     df = pd.read_csv('diabetes_binary_health_indicators_BRFSS2015.csv')
     df.columns = df.columns.str.lower()
     
     return df
 
 def acquire_prep_diabetes_df3(df):
+    '''Creates a balanced sample dataframe from the acqure_diabetes_df1 function'''
     prediabetic = df[df.diabetes_012 == 1]
     not_diabetic = df[df.diabetes_012 == 0].sample(4631)
     diabetic = df[df.diabetes_012 == 2].sample(4631)
@@ -121,6 +125,12 @@ def stacked_plot(col_to_stack, df):
 # STATS
 
 def chi2_test(df, var1, var2):
+
+    '''Runs a chi2 stats test for 2 variables
+    
+    arguments: df, var1, var2
+    
+    returns: print statements'''
     alpha = .05
     observed = pd.crosstab(df[var1], df[var2])
     chi2, p, degf, expected = stats.chi2_contingency(observed)
@@ -285,6 +295,8 @@ def get_logreg(X_train, X_validate, y_train, y_validate):
     print(f' Accuracy of Logistic Regression on validate is {logit.score(X_validate, y_validate)}')
 
 def grid_reg(X_train, y_train):
+
+    '''Used to find the best hyperparameters for the logistic regression models to use'''
     #Define the hyperparameters to tune
     param_grid = {
         'C': [0.1, 1, 10],
@@ -308,6 +320,8 @@ def grid_reg(X_train, y_train):
 
 #-----------
 def logreg_grid(X_train, X_validate, y_train, y_validate):
+    '''This is specific to the logistic regression model
+    that was determined by the grid_reg func for diabetes dataframes'''
     #Train a Logistic Regression Model
     logreg = LogisticRegression(max_iter=100, random_state=7, C=1, penalty='l2', solver='liblinear')
     logreg.fit(X_train, y_train)
@@ -321,6 +335,18 @@ def logreg_grid(X_train, X_validate, y_train, y_validate):
     y_val_pred = logreg.predict(X_validate)
     val_accuracy = accuracy_score(y_validate, y_val_pred)
     print(f'Validate Set Accuracy: {val_accuracy}')
+
+
+def get_logreg_test(X_train, X_test, y_train, y_test):
+    '''get logistic regression accuracy on test data'''
+
+    # create model object and fit it to the training data
+    logit = LogisticRegression(max_iter=100, random_state=7, C=1, penalty='l2', solver='liblinear')
+    logit.fit(X_train, y_train)
+
+    # print result
+    print(f"Accuracy of Logistic Regression on test is {logit.score(X_test, y_test)}")
+
 
 def select_kbest(X, y, k=2):
     '''
